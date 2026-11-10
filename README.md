@@ -59,7 +59,7 @@ dist/                    Generated deployable files (not committed)
 
 ## Hostinger deployment
 
-The workflow at `.github/workflows/deploy.yml` runs on pushes to `main` and can also be started manually in the Actions tab. In repository **Settings → Secrets and variables → Actions**, add:
+The workflow at `.github/workflows/deploy.yml` runs on pushes to `master` and can also be started manually in the Actions tab. In repository **Settings → Secrets and variables → Actions**, add:
 
 | Name | Type | Value |
 | --- | --- | --- |
