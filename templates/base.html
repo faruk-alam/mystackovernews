@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{title}}</title>
+  <meta name="description" content="{{description}}">
+  <link rel="canonical" href="{{canonical}}">
+  <meta property="og:type" content="{{og_type}}">
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:description" content="{{description}}">
+  <meta property="og:url" content="{{canonical}}">
+  <meta property="og:image" content="{{image}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{title}}">
+  <meta name="twitter:description" content="{{description}}">
+  <meta name="twitter:image" content="{{image}}">
+  <meta name="theme-color" content="#fbfaf7">
+  <link rel="alternate" type="application/rss+xml" title="Stack Over News RSS" href="{{site_url}}/rss.xml">
+  <link rel="stylesheet" href="{{root_path}}style.css">
+  <script type="application/ld+json">{{json_ld}}</script>
+</head>
+<body class="min-h-screen bg-paper antialiased">
+  <div class="reading-progress fixed inset-x-0 top-0 z-50 h-1 bg-emerald-700" id="reading-progress" aria-hidden="true"></div>
+  <header class="sticky top-0 z-40 border-b border-soft bg-paper/95 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+      <a class="flex items-center gap-2 no-underline" href="{{root_path}}" aria-label="Stack Over News home">
+        <span class="grid h-9 w-9 place-items-center rounded-sm bg-emerald-800 text-sm font-black text-white">SN</span>
+        <span><span class="block text-base font-black tracking-tight">STACK OVER NEWS</span><span class="hidden text-[10px] uppercase tracking-[.19em] text-muted sm:block">Clarity for a changing world</span></span>
+      </a>
+      <nav class="hidden items-center gap-5 text-sm font-semibold lg:flex" aria-label="Main navigation">{{nav_categories}}</nav>
+      <div class="flex items-center gap-2">
+        <form class="hidden sm:block" role="search" action="{{root_path}}" onsubmit="return false">
+          <label class="sr-only" for="site-search">Search stories</label>
+          <input id="site-search" class="w-40 rounded border border-soft bg-paper px-3 py-2 text-sm outline-none focus:border-emerald-700" type="search" placeholder="Search stories…" autocomplete="off">
+          <div id="search-results" class="absolute right-20 top-14 z-50 hidden max-h-96 w-80 overflow-auto rounded border border-soft bg-paper p-2 shadow-xl" aria-live="polite"></div>
+        </form>
+        <button id="theme-toggle" class="rounded border border-soft px-3 py-2 text-sm" type="button" aria-label="Toggle dark mode">◐</button>
+        <button id="menu-toggle" class="rounded border border-soft px-3 py-2 text-sm lg:hidden" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+    <nav id="mobile-menu" class="hidden border-t border-soft px-4 py-3 lg:hidden" aria-label="Mobile navigation"><form class="mb-3" role="search" action="{{root_path}}" onsubmit="return false"><label class="sr-only" for="mobile-site-search">Search stories</label><input id="mobile-site-search" class="w-full rounded border border-soft bg-paper px-3 py-2 text-sm outline-none focus:border-emerald-700" type="search" placeholder="Search stories…" autocomplete="off"><div id="mobile-search-results" class="hidden max-h-60 overflow-auto rounded border border-soft bg-paper p-2" aria-live="polite"></div></form><div class="flex flex-wrap gap-x-5 gap-y-3 text-sm font-semibold">{{nav_categories}}</div><div class="mt-3 flex flex-wrap gap-4 text-sm">{{nav_pages}}</div></nav>
+  </header>
+  <main id="main-content">{{content}}</main>
+  <footer class="mt-16 border-t border-soft">
+    <div class="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-2 lg:px-8">
+      <div><a class="font-black tracking-tight no-underline" href="{{root_path}}">STACK OVER NEWS</a><p class="mt-2 max-w-md text-sm text-muted">Independent explainers and reporting for curious readers. A demo publication built for the open web.</p></div>
+      <nav class="flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted" aria-label="Footer navigation">{{footer_pages}}</nav>
+    </div>
+    <div class="border-t border-soft px-4 py-4 text-center text-xs text-muted">© {{year}} Stack Over News. All rights reserved.</div>
+  </footer>
+  <div class="ad-slot ad-anchor fixed inset-x-0 bottom-0 z-30 border-x-0 border-b-0 bg-paper" aria-label="Advertisement">Advertisement</div>
+  <script>window.ADSENSE_PUBLISHER_ID = "{{adsense_id}}";</script>
+  <script defer src="{{root_path}}script.js"></script>
+</body>
+</html>

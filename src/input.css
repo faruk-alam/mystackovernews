@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; --paper: #fbfaf7; --ink: #17211e; --muted: #65716c; --line: #dfe4df; --accent: #176b53; }
+:root.dark { color-scheme: dark; --paper: #111916; --ink: #eef3ef; --muted: #a6b2ac; --line: #34413b; --accent: #80d0ae; }
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.text-muted { color: var(--muted); }
+.border-soft { border-color: var(--line); }
+.bg-paper { background: var(--paper); }
+.text-accent { color: var(--accent); }
+.reading-progress { transform-origin: left; transform: scaleX(0); }
+.article-copy { font-size: 1.125rem; line-height: 1.85; }
+.article-copy h2 { margin: 2.25rem 0 .75rem; font-size: 1.65rem; font-weight: 750; letter-spacing: -.025em; line-height: 1.2; }
+.article-copy h3 { margin: 1.75rem 0 .5rem; font-size: 1.3rem; font-weight: 700; }
+.article-copy p, .article-copy ul, .article-copy ol, .article-copy blockquote { margin: 1.2rem 0; }
+.article-copy ul, .article-copy ol { padding-left: 1.5rem; }
+.article-copy li { margin: .4rem 0; }
+.article-copy blockquote { border-left: 3px solid var(--accent); padding-left: 1rem; color: var(--muted); }
+.article-copy a { color: var(--accent); }
+.ad-slot { display: grid; place-items: center; border: 1px dashed var(--line); color: var(--muted); background: color-mix(in srgb, var(--paper) 92%, var(--muted)); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; }
+.ad-headline { min-height: 100px; }
+.ad-mid { min-height: 250px; margin: 2rem 0; }
+.ad-end { min-height: 250px; margin-top: 2rem; }
+.ad-anchor { min-height: 64px; }
+.menu-open #mobile-menu { display: block; }
+@media (min-width: 768px) { .ad-anchor { display: none; } }
+@media (max-width: 767px) { body { padding-bottom: 64px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }

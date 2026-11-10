@@ -1,0 +1,11 @@
+<section class="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
+  <nav class="sr-only" aria-label="Breadcrumbs"><ol><li aria-current="page">Home</li></ol></nav>
+  <div class="mb-7 flex items-end justify-between border-b-2 border-emerald-800 pb-3"><div><p class="text-xs font-bold uppercase tracking-[.2em] text-accent">Tuesday, {{today}}</p><h1 class="mt-1 text-3xl font-black tracking-tight sm:text-4xl">The daily briefing</h1></div><span class="hidden text-sm text-muted sm:block">Independent journalism. Useful context.</span></div>
+  <div class="grid gap-8 lg:grid-cols-12">
+    <article class="overflow-hidden lg:col-span-8"><a href="{{hero_url}}" class="group block no-underline"><img class="aspect-[16/9] w-full rounded object-cover" src="{{hero_image}}" width="1200" height="675" alt="{{hero_image_alt}}"><div class="pt-5"><span class="text-xs font-bold uppercase tracking-[.16em] text-accent">{{hero_category}}</span><h2 class="mt-2 max-w-4xl text-3xl font-black leading-tight tracking-tight group-hover:underline sm:text-5xl">{{hero_title}}</h2><p class="mt-3 max-w-3xl text-lg text-muted">{{hero_description}}</p><p class="mt-4 text-sm text-muted">By {{hero_author}} <span aria-hidden="true">·</span> {{hero_date}}</p></div></a></article>
+    <aside class="lg:col-span-4"><div class="flex items-center justify-between border-b border-soft pb-3"><h2 class="text-lg font-black">Trending now</h2><span class="text-xs text-muted">MOST READ</span></div><div class="divide-y divide-[var(--line)]">{{trending}}</div></aside>
+  </div>
+  <div class="ad-slot ad-headline mt-8" aria-label="Advertisement">Advertisement</div>
+  <section class="mt-12"><div class="mb-5 flex items-end justify-between border-b border-soft pb-3"><h2 class="text-2xl font-black tracking-tight">Latest stories</h2><a class="text-sm font-semibold text-accent" href="{{latest_url}}">{{latest_label}}</a></div><div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{{latest}}</div></section>
+  {{category_sections}}
+</section>
