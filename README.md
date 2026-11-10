@@ -59,7 +59,7 @@ dist/                    Generated deployable files (not committed)
 
 ## GitHub Pages deployment
 
-The workflow at `.github/workflows/deploy.yml` runs on pushes to `master` and can also be started manually in the Actions tab. In the repository, open **Settings → Pages** and set the publishing source to **GitHub Actions**. Then enable Actions if prompted. No FTP credentials are required.
+The workflow at `.github/workflows/deploy.yml` runs on pushes to `master` and can also be started manually in the Actions tab. On its first run, it enables GitHub Pages with **GitHub Actions** as the publishing source. If repository settings or permissions prevent automatic setup, open **Settings → Pages** and set the source to **GitHub Actions**. No FTP credentials are required.
 
 The action builds the static site, uploads `dist/`, and deploys it. It derives the canonical site URL from GitHub Pages, including the repository path for project sites. To enable AdSense, add an `ADSENSE_PUBLISHER_ID` repository secret. The four reserved ad placements remain placeholders until you configure your ad units.
 
