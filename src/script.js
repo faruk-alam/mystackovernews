@@ -31,9 +31,9 @@
   updateProgress();
 
   const inputs = [document.getElementById('site-search'), document.getElementById('mobile-site-search')].filter(Boolean);
-  const pathParts = window.location.pathname.split('/').filter(Boolean);
-  const depth = pathParts.length;
-  const searchUrl = new URL(`${'../'.repeat(depth)}search.json`, window.location.href);
+  const scriptUrl = document.currentScript ? new URL(document.currentScript.src) : new URL('./script.js', window.location.href);
+  const siteRoot = new URL('./', scriptUrl);
+  const searchUrl = new URL('search.json', siteRoot);
   let searchItems = [];
   let loadPromise;
   const loadSearch = () => loadPromise ||= fetch(searchUrl).then(response => {
@@ -53,7 +53,7 @@
       matches.forEach(item => {
         const link = document.createElement('a');
         link.className = 'block rounded p-3 no-underline hover:bg-black/5 dark:hover:bg-white/5';
-        link.href = item.url;
+        link.href = new URL(item.url.replace(/^\/+/, ''), siteRoot);
         const category = document.createElement('span'); category.className = 'block text-[10px] font-bold uppercase tracking-wide text-accent'; category.textContent = item.category;
         const title = document.createElement('span'); title.className = 'mt-1 block text-sm font-bold'; title.textContent = item.title;
         const description = document.createElement('span'); description.className = 'mt-1 block text-xs text-muted'; description.textContent = item.description;

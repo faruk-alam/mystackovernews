@@ -22,8 +22,8 @@ GitHub Mobile is useful for finding the repository, reviewing changes and handli
 1. In GitHub Mobile, open this repository and choose **Open in browser** from the repository menu.
 2. In the browser, navigate to `content/` and choose **Add file → Create new file**. Enter a path such as `content/science/clean-energy-storage.md`.
 3. Paste the front matter and article text below. Use one of the existing categories: `Technology`, `Science`, `Business`, or `Culture`. Slugs must be lowercase with hyphens and unique.
-4. Choose **Preview** to check the Markdown. Commit the file to a new branch and open a pull request, or commit directly to `main` if your repository allows it.
-5. Once the change reaches `main`, GitHub Actions builds the site and deploys the contents of `dist/` to Hostinger.
+4. Choose **Preview** to check the Markdown. Commit the file to a new branch and open a pull request, or commit directly to `master` if your repository allows it.
+5. Once the change reaches `master`, GitHub Actions builds the site and publishes the contents of `dist/` to GitHub Pages.
 
 ```markdown
 ---
@@ -57,22 +57,11 @@ dist/                    Generated deployable files (not committed)
 
 `npm run build` generates the homepage, `/news/{slug}/index.html`, paginated category pages (two stories per page in this demo), five information pages, `sitemap.xml`, `news-sitemap.xml`, `rss.xml`, `robots.txt`, and `search.json`, then builds `dist/style.css` with Tailwind CLI. All navigation and search are client-side or static.
 
-## Hostinger deployment
+## GitHub Pages deployment
 
-The workflow at `.github/workflows/deploy.yml` runs on pushes to `master` and can also be started manually in the Actions tab. In repository **Settings → Secrets and variables → Actions**, add:
+The workflow at `.github/workflows/deploy.yml` runs on pushes to `master` and can also be started manually in the Actions tab. In the repository, open **Settings → Pages** and set the publishing source to **GitHub Actions**. Then enable Actions if prompted. No FTP credentials are required.
 
-| Name | Type | Value |
-| --- | --- | --- |
-| `SITE_URL` | Variable | Public origin, for example `https://news.example.com` |
-| `HOSTINGER_FTP_SERVER` | Secret | FTP hostname from the Hostinger account |
-| `HOSTINGER_FTP_USERNAME` | Secret | FTP account username |
-| `HOSTINGER_FTP_PASSWORD` | Secret | FTP account password |
-| `HOSTINGER_FTP_SERVER_DIR` | Secret | Target directory, commonly `/public_html/` |
-| `HOSTINGER_FTP_PROTOCOL` | Secret, optional | `ftp` by default; use `ftps` if enabled by your account |
-| `HOSTINGER_FTP_PORT` | Secret, optional | `21` by default |
-| `ADSENSE_PUBLISHER_ID` | Secret, optional | Your `ca-pub-...` publisher ID |
-
-The deploy action uploads only `dist/`. The four reserved ad placements are placeholders until you connect and configure your ad units.
+The action builds the static site, uploads `dist/`, and deploys it. It derives the canonical site URL from GitHub Pages, including the repository path for project sites. To enable AdSense, add an `ADSENSE_PUBLISHER_ID` repository secret. The four reserved ad placements remain placeholders until you configure your ad units.
 
 ## Included pages and features
 
